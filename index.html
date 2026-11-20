@@ -1,1 +1,194 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kailkob — Ding Dong Piro</title>
+  <meta name="description" content="Kailkob: nuevo single «Ding Dong Piro» y enlaces a Apple Music, Spotify, YouTube, TikTok e Instagram.">
+  <meta property="og:title" content="Kailkob — Ding Dong Piro">
+  <meta property="og:description" content="Nuevo single. Escúchalo y sigue a Kailkob.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kailkob.github.io/kailkob-links/">
+  <meta property="og:image" content="https://kailkob.github.io/kailkob-links/img/ding-dong-piro.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://kailkob.github.io/kailkob-links/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23fff'/%3E%3Cpath d='M10 6c-.4 7 .3 13-.3 20M22 7c-3 4-7 7-11.5 9.5 4 1.5 8 5 12 9.5' fill='none' stroke='%23111' stroke-width='2.6' stroke-linecap='round'/%3E%3Crect x='17' y='12' width='9' height='2.4' fill='%23d8261c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #111; --red: #d8261c; --paper: #fff; --gap: clamp(10px, 2.4vw, 24px); --line: 2.4px; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.15rem/1.2 "Gaegu", "Comic Sans MS", cursive; letter-spacing: .04em;
+      display: grid; place-items: center; min-height: 100svh; padding: max(var(--gap), env(safe-area-inset-top)) var(--gap) max(var(--gap), env(safe-area-inset-bottom));
+      -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+    a, button { touch-action: manipulation; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    :focus-visible { outline: 2px dashed var(--red); outline-offset: 3px; }
+
+    /* ventana dibujada */
+    .win { position: relative; width: min(100%, 440px); height: calc(100svh - 2 * var(--gap)); max-height: 880px; display: flex; flex-direction: column;
+      border: var(--line) solid var(--ink); border-radius: 16px 20px 14px 22px / 20px 14px 22px 16px; box-shadow: 5px 6px 0 var(--ink); background: var(--paper); overflow: hidden; }
+    .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .3rem .7rem .2rem .9rem; border-bottom: var(--line) solid var(--ink); font-size: 1.05rem; letter-spacing: .14em; }
+    .bar-b { display: flex; gap: .35rem; }
+    .bar-b i { display: grid; place-items: center; width: 1.35rem; height: 1.15rem; border: 2px solid var(--ink); border-radius: 4px 3px 5px 3px; font: 700 .8rem/1 "Gaegu", cursive; font-style: normal; }
+    .addr { display: none; margin: .55rem .8rem 0; padding: .2rem .35rem .15rem .7rem; border: 2px solid var(--ink); border-radius: 7px 5px 8px 5px; font-size: .95rem; letter-spacing: .06em; align-items: center; justify-content: space-between; }
+    .addr b { display: grid; place-items: center; width: 1.4rem; height: 1.2rem; border-left: 2px solid var(--ink); font-size: .7rem; }
+    @media (min-height: 780px) { .addr { display: flex; } }
+
+    .content { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: clamp(.45rem, 1.6svh, 1rem); padding: clamp(.5rem, 1.8svh, 1.1rem) clamp(.8rem, 4vw, 1.3rem) clamp(.7rem, 2svh, 1.2rem); }
+    .who { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; }
+    h1 { margin: 0; flex: none; width: min(100%, 19rem); line-height: 0; }
+    .name { width: 100%; height: auto; overflow: visible; }
+    .name .main path { fill: none; stroke: var(--ink); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; animation: draw 1.1s var(--d, 0s) cubic-bezier(.6, .1, .3, 1) both; }
+    .name .dot { fill: var(--ink); animation: dot .2s 1.1s both; }
+    @keyframes dot { from { opacity: 0; } }
+    .name .glitch rect { animation: blink 4.2s steps(1) infinite; }
+    .name .glitch rect:nth-child(even) { animation-delay: -2.1s; }
+    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @keyframes blink { 0%, 86%, 100% { transform: none; } 88% { transform: translateX(6px); } 92% { transform: translateX(-4px); } }
+    .photo { flex: 1 1 0; min-height: 0; height: 0; width: 100%; object-fit: contain; margin-top: clamp(-.6rem, -1svh, 0rem); }
+
+    .side { flex: none; display: flex; flex-direction: column; gap: clamp(.45rem, 1.5svh, .9rem); }
+
+    /* reproductor */
+    .player { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; padding: .5rem .6rem .5rem .5rem; border: var(--line) solid var(--ink); border-radius: 12px 9px 13px 10px / 9px 13px 10px 12px; }
+    .cover { width: clamp(54px, 8.4svh, 76px); height: auto; aspect-ratio: 1; display: block; object-fit: cover; border: 2px solid var(--ink); border-radius: 5px 3px 6px 4px; transform: rotate(-2deg); }
+    .kicker { margin: 0; font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; color: var(--red); display: flex; align-items: center; gap: .4rem; }
+    .kicker .e { display: inline-grid; place-items: center; width: 1rem; height: 1rem; border: 1.6px solid var(--ink); border-radius: 3px; color: var(--ink); font: 700 .7rem/1 "Gaegu", cursive; letter-spacing: 0; }
+    .song { display: inline-block; max-width: 100%; margin-top: .05rem; font-size: clamp(1.05rem, 4.6vw, 1.55rem); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; line-height: 1; white-space: nowrap; }
+    @media (max-width: 340px) { .song { white-space: normal; } }
+    .song small { font-size: .65em; font-weight: 400; margin-left: .15rem; }
+    .track { display: flex; align-items: center; gap: .55rem; margin-top: .4rem; }
+    .line { position: relative; flex: 1; height: 2px; background: var(--ink); border-radius: 2px; }
+    .fill { position: absolute; left: 0; top: -2px; height: 6px; width: 0; background: var(--red); border-radius: 3px; }
+    .time { font-size: .9rem; min-width: 2.4rem; text-align: right; font-variant-numeric: tabular-nums; }
+    .play { width: 3rem; height: 3rem; border: var(--line) solid var(--ink); border-radius: 50% 46% 52% 48%; display: grid; place-items: center; transition: transform .15s; }
+    .play svg { width: 1.15rem; height: 1.15rem; }
+    .play .i-pause { display: none; }
+    .play[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+    .play[aria-pressed="true"] .i-play { display: none; } .play[aria-pressed="true"] .i-pause { display: block; }
+    .play:active { transform: scale(.94); }
+
+    /* botones con cable */
+    .links-wrap { position: relative; }
+    .links { position: relative; list-style: none; margin: 0; padding: 0 0 0 1.7rem; display: flex; flex-direction: column; gap: clamp(.3rem, 1.1svh, .55rem); }
+    .cable { position: absolute; left: 0; top: -.4rem; bottom: .2rem; width: 1.2rem; height: calc(100% + .2rem); overflow: visible; pointer-events: none; }
+    .cable path { fill: none; stroke: var(--red); stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .links li { position: relative; }
+    .links li::before { content: ""; position: absolute; right: 100%; top: 50%; width: 1.25rem; height: 3px; margin-top: -1.5px; background: var(--red); }
+    .links li::after { content: ""; position: absolute; left: -6px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border: 2px solid var(--ink); border-radius: 50%; background: var(--paper); z-index: 1; }
+    .links a { display: flex; align-items: center; gap: .7rem; height: clamp(40px, 6.1svh, 50px); padding: 0 .9rem 0 1rem; border: var(--line) solid var(--ink); border-radius: 10px 12px 9px 13px / 12px 9px 13px 10px;
+      font-size: clamp(1.25rem, 5vw, 1.4rem); font-weight: 700; letter-spacing: .07em; background: var(--paper); transition: transform .15s var(--ease, ease), background-color .15s, color .15s; }
+    .links svg { width: 1.35rem; height: 1.35rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .links .sep { width: 2px; align-self: stretch; margin: .6rem 0; background: currentColor; border-radius: 2px; }
+    .links .arr { margin-left: auto; font-size: 1.1rem; }
+    .links li:nth-child(odd) a { transform: rotate(-.6deg); } .links li:nth-child(even) a { transform: rotate(.5deg); }
+    @media (hover: hover) and (pointer: fine) { .links a:hover { background: var(--ink); color: var(--paper); transform: translateX(3px); } .play:hover { background: var(--ink); color: var(--paper); } }
+    .links a:active { background: var(--ink); color: var(--paper); }
+
+    /* ordenador: dos columnas */
+    @media (min-width: 860px) and (min-height: 560px) {
+      .win { width: min(100%, 980px); height: min(calc(100svh - 2 * var(--gap)), 660px); }
+      .addr { display: flex; }
+      .content { flex-direction: row; align-items: stretch; gap: 2.4rem; padding: 1.2rem 2rem 1.6rem 1.6rem; }
+      .who { flex: 1.1; }
+      h1 { width: min(100%, 24rem); }
+      .side { flex: 1; justify-content: center; gap: 1rem; max-width: 26rem; }
+      .links a { height: 3.1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .name .main path { stroke-dasharray: none; } }
+  </style>
+</head>
+<body>
+  <main class="win">
+    <div class="bar"><span translate="no">kailkob.exe</span><span class="bar-b" aria-hidden="true"><i>–</i><i>□</i><i>✕</i></span></div>
+    <div class="addr" aria-hidden="true"><span translate="no">http://kailkob.github.io/kailkob-links</span><b>▼</b></div>
+
+    <div class="content">
+      <div class="who">
+        <h1><span class="sr-only">Kailkob</span>
+          <!-- nombre: «kAilkoB» calcado del dibujo de Kailkob (trazo único) + barras de glitch -->
+          <svg class="name" viewBox="0 0 870 280" aria-hidden="true">
+            <g class="main">
+              <path pathLength="1" style="--d:0s" d="M30 15 C28 80 26 170 22 255"/>
+              <path pathLength="1" style="--d:.08s" d="M95 65 C75 95 50 125 28 150"/>
+              <path pathLength="1" style="--d:.14s" d="M24 215 C34 195 48 190 58 205 C70 225 80 245 90 255"/>
+              <path pathLength="1" style="--d:.22s" d="M115 265 C140 190 175 120 220 60 C235 140 252 200 264 255"/>
+              <path pathLength="1" style="--d:.32s" d="M138 178 C168 150 212 142 240 156 C258 170 250 196 230 190 C212 184 216 160 238 154"/>
+              <path pathLength="1" style="--d:.42s" d="M330 95 C336 140 326 190 340 240"/>
+              <path pathLength="1" style="--d:.5s" d="M392 10 C388 90 395 170 405 238 C412 250 430 245 452 228"/>
+              <path pathLength="1" style="--d:.6s" d="M490 30 C492 100 490 180 495 250"/>
+              <path pathLength="1" style="--d:.66s" d="M585 70 C560 100 525 125 498 150"/>
+              <path pathLength="1" style="--d:.72s" d="M495 210 C510 195 525 195 532 210 C545 230 552 245 562 252"/>
+              <path pathLength="1" style="--d:.8s" d="M682 118 C652 118 640 160 643 198 C646 238 664 260 690 256 C716 252 726 222 722 186 C718 146 704 116 682 118"/>
+              <path pathLength="1" style="--d:.88s" d="M683 146 C668 148 663 176 665 202 C667 228 677 240 689 236 C701 232 704 208 700 184 C697 162 692 145 683 146"/>
+              <path pathLength="1" style="--d:.96s" d="M755 30 C752 100 754 180 752 255"/>
+              <path pathLength="1" style="--d:1.04s" d="M752 32 C800 18 835 35 820 75 C810 100 780 110 756 112 C805 108 845 140 842 190 C840 235 800 258 752 252"/>
+            </g>
+            <circle class="dot" cx="331" cy="50" r="8"/><circle class="dot" cx="752" cy="253" r="7"/>
+            <g class="glitch">
+              <rect x="0" y="40" width="70" height="10" fill="#d8261c"/><rect x="34" y="52" width="30" height="7" fill="#111"/>
+              <rect x="790" y="270" width="80" height="10" fill="#d8261c"/><rect x="770" y="262" width="26" height="7" fill="#111"/>
+            </g>
+          </svg>
+        </h1>
+        <img class="photo" src="img/kailkob.png" alt="Retrato dibujado de Kailkob con los ojos cerrados" width="800" height="800" fetchpriority="high">
+      </div>
+
+      <div class="side">
+        <!-- EDITAR: nuevo lanzamiento (portada, título, enlace y avance de 30 s de Apple Music) -->
+        <section class="player" aria-label="Nuevo single">
+          <img class="cover" src="img/ding-dong-piro.jpg" alt="Portada de Ding Dong Piro" width="800" height="800">
+          <div>
+            <p class="kicker">nuevo single <span class="e" title="Contenido explícito" aria-label="explícito">E</span></p>
+            <a class="song" href="https://music.apple.com/es/album/ding-dong-piro/6837050313?i=6837050314" target="_blank" rel="noopener">Ding Dong Piro<small aria-hidden="true">↗</small><span class="sr-only"> en Apple Music (se abre en otra pestaña)</span></a>
+            <div class="track" aria-hidden="true"><span class="line"><span class="fill" id="fill"></span></span><span class="time" id="time">0:30</span></div>
+          </div>
+          <button class="play" id="play" type="button" aria-pressed="false" aria-label="Escuchar un avance de Ding Dong Piro">
+            <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3 L16 10 L5 17 Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3 V17 M14 3 V17" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg>
+          </button>
+        </section>
+
+        <nav class="links-wrap" aria-label="Kailkob en las plataformas">
+          <svg class="cable" viewBox="0 0 20 100" preserveAspectRatio="none" aria-hidden="true"><path d="M10 0 C2 10 18 18 10 30 C2 42 18 50 10 62 C2 74 18 82 10 94 L10 100"/></svg>
+          <ul class="links">
+            <li><a href="https://music.apple.com/es/artist/kailkob/1797300511" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C7 7.5 5.6 8.4 4.8 9.8c-1.6 2.8-.4 6.9 1.2 9.1.8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7c1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.2-2.6 0 0-2.4-.9-2.4-3.7z"/><path d="M14.3 5.8c.6-.8 1-1.8.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z"/></svg><span class="sep"></span>Apple Music<span class="arr" aria-hidden="true">↗</span><span class="sr-only"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://open.spotify.com/artist/3jYSHWbpXuVlIcGAhi24lI" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7 9.4c3.5-1 7.2-.6 10.2 1M7.6 12.6c2.8-.7 5.8-.4 8.2.9M8.3 15.6c2.2-.5 4.4-.2 6.2.7"/></svg><span class="sep"></span>Spotify<span class="arr" aria-hidden="true">↗</span><span class="sr-only"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://www.youtube.com/@kailkob" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2 L15 12 L10 14.8 Z"/></svg><span class="sep"></span>YouTube<span class="arr" aria-hidden="true">↗</span><span class="sr-only"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://www.tiktok.com/@kailkob" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 3.5v11.2a3.4 3.4 0 1 1-3.4-3.4"/><path d="M13.5 3.5c.5 2.6 2.4 4.4 5 4.6"/></svg><span class="sep"></span>TikTok<span class="arr" aria-hidden="true">↗</span><span class="sr-only"> (se abre en otra pestaña)</span></a></li>
+            <li><a href="https://www.instagram.com/kailkob/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.1" cy="6.9" r=".6" fill="currentColor"/></svg><span class="sep"></span>Instagram<span class="arr" aria-hidden="true">↗</span><span class="sr-only"> (se abre en otra pestaña)</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* reproductor: avance de 30 s de Apple Music */
+    (() => {
+      const PREVIEW = 'https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/50/7e/fb/507efbbe-b7c2-b89a-ad1e-e8f39b380a94/mzaf_18158414425595170406.plus.aac.p.m4a';
+      const btn = document.getElementById('play'), fill = document.getElementById('fill'), time = document.getElementById('time');
+      let audio = null;
+      const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+      const set = on => { btn.setAttribute('aria-pressed', on); btn.setAttribute('aria-label', (on ? 'Pausar' : 'Escuchar') + ' el avance de Ding Dong Piro'); };
+      btn.addEventListener('click', () => {
+        if (!audio) {
+          audio = new Audio(PREVIEW);
+          audio.addEventListener('play', () => set(true));
+          audio.addEventListener('pause', () => set(false));
+          audio.addEventListener('timeupdate', () => { const d = audio.duration || 30; fill.style.width = (audio.currentTime / d * 100) + '%'; time.textContent = fmt(Math.max(0, d - audio.currentTime)); });
+          audio.addEventListener('ended', () => { audio.currentTime = 0; fill.style.width = '0'; time.textContent = '0:30'; set(false); });
+          if ('mediaSession' in navigator) navigator.mediaSession.metadata = new MediaMetadata({ title: 'Ding Dong Piro', artist: 'Kailkob', artwork: [{ src: 'img/ding-dong-piro.jpg', sizes: '800x800', type: 'image/jpeg' }] });
+        }
+        audio.paused ? audio.play().catch(() => set(false)) : audio.pause();
+      });
+    })();
+  </script>
+</body>
+</html>
